@@ -19,11 +19,14 @@ def main():
 
     contacts = load(open(CONTACTS_PATH, "r"))
 
-    number_str = ""
+    number_str: str = ""
     for contact in contacts:
         number_str += (f"{contact['number']},").replace("+49", "0")
 
-    message = open(MESSAGE_PATH, "r").readlines()
+    fstr = open(MESSAGE_PATH, "r")
+    message = ""
+    for line in fstr:
+        message += line
 
     run(["termux-sms-send", "-n", number_str[:-1], "1", message])  # slot of sim card
 
