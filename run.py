@@ -25,7 +25,7 @@ def main():
 
     message = open(MESSAGE_PATH, "r").readlines()
 
-    run(["termux-sms-send", "-n", number_str[:-1], 1, message])  # slot of sim card
+    run(["termux-sms-send", "-n", number_str[:-1], "1", message])  # slot of sim card
 
 
 
