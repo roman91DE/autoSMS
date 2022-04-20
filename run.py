@@ -27,8 +27,12 @@ def main():
 
     try:
         run(["termux-sms-send", "-n", number_str[:-1], 1, message])  # slot of sim card
-    except:
-        print("Something went wrong :-(", file=stderr)
+    except Exception as Err:
+        print(
+            "Something went wrong :-(",
+            Err.with_traceback,
+             file=stderr
+             )
 
 
 if __name__ == "__main__":
